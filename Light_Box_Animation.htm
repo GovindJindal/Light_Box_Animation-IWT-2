@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Box Animation</title>
+    <style>
+        body{
+            text-align: center;
+            display:flex;
+            flex-wrap: wrap-reverse;
+            gap:20px;
+            justify-content: center;
+            background-image:linear-gradient(to top,rgb(22, 1, 1) 30%, rgb(110, 38, 38),black,rgb(83, 8, 8));
+        }
+        .a img{
+            height:30vh ;
+            width:15vw ;
+            transition: transform 0.3s ease;
+        }
+        
+        .b{
+            height: 90vh;
+            width: 50vw;
+        }
+        a img:hover{
+            transform: scale(1.1);
+        }
+        .lightbox{
+        background-color: rgba(0, 0, 0, 0.8);
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.5s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+        .lightbox:target{
+            opacity: 1;
+            pointer-events:auto;
+        }
+        .close{
+            height: 100%;
+            width: 100%;
+            position: absolute; 
+            top:0;
+            left:0;
+            /* Because Starting se chale */
+            /* z-index add krne se img up aajayegi and then on clicking on image refresh nhi hoga */
+        }
+    </style>
+</head>
+<body>
+    <a href="#img-1" class="a"><img src="https://creativereview.imgix.net/uploads/2023/12/Oppenheimer.jpg?auto=compress,format&crop=faces,entropy,edges&fit=crop&q=60&w=1263&h=2000" ></a>
+    <a href="#img-2" class="a"><img src="https://www.tallengestore.com/cdn/shop/products/Art_Poster_-_Sicario_-_Tallenge_Hollywood_Collection_210a9d5c-4bf2-4323-ae52-1f5104039449.jpg?v=1505078989" ></a>
+    <a href="#img-3" class="a"><img src="https://m.media-amazon.com/images/I/81dae9nZFBS._AC_UF894,1000_QL80_.jpg" ></a>
+    <a href="#img-4" class="a"><img src="https://substackcdn.com/image/fetch/$s_!kYcn!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a586bd9-e88f-4d89-97ec-0f1e0f72a0ee_800x1184.jpeg" ></a>
+    <a href="#img-5" class="a"><img src="https://images-cdn.ubuy.co.in/68901f6ae49b8c404602f009-the-batman-movie-poster-glossy-quality.jpg" ></a>
+    <a href="#img-6" class="a"><img src="https://m.media-amazon.com/images/I/71eHZFw+GlL._AC_UF894,1000_QL80_.jpg" ></a>
+    <a href="#img-7" class="a"><img src="https://images-cdn.ubuy.co.in/68b1b650d9f8d3e89e042c52-star-wars-rogue-one-movie-poster.jpg" ></a>
+    <a href="#img-8" class="a"><img src="https://posterhouse.org/wp-content/uploads/2021/05/moonlight_0.jpg" ></a>
+    <a href="#img-9" class="a"><img src="https://creativereview.imgix.net/uploads/2024/12/AlienRomulus-scaled.jpg?auto=compress,format&crop=faces,entropy,edges&fit=crop&q=60&w=1728&h=2560" ></a>
+    <a href="#img-10" class="a"><img src="https://substackcdn.com/image/fetch/$s_!SjlY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F289ad232-bb03-4b07-848c-d0dad888a4dc_2000x2963.png" ></a>
+    <a href="#img-11" class="a"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ1Fks8pmusafuaw97CN8bFb1iddR1_FmvCw&s" ></a>
+    <a href="#img-12" class="a"><img src="https://rukminim2.flixcart.com/image/480/640/jr3t5e80/poster/a/w/f/medium-stranger-things-poster-for-room-office-13-inch-x-19-inch-original-imafcww8v99r4qhh.jpeg?q=90" ></a>
+    <a href="#img-13" class="a"><img src="https://webdesignerdepot-wp.s3.us-east-2.amazonaws.com/2023/11/30121006/jurassicpark.jpg" ></a>
+    <a href="#img-14" class="a"><img src="https://compote.slate.com/images/77440fdf-a599-4fd1-90fc-cc619aa7419d.jpg?crop=590%2C885%2Cx0%2Cy0" ></a>
+    <a href="#img-15" class="a"><img src="https://cdn.prod.website-files.com/687e8d1b96312cc631cafec7/68c48d141e8381607486e3fe_66a4263d01a185d5ea22eeef_6408f676b5811234c887ca62_top%252520gun%252520maverick-min.png" ></a>
+    <a href="#img-16" class="a"><img src="https://i.pinimg.com/1200x/fb/55/dc/fb55dc632b7a7ffbabf104b1208b27fc.jpg" ></a>
+    <a href="#img-18" class="a"><img src="https://media.designrush.com/tinymce_images/205872/conversions/1.-Dream-Factory-content.jpg" ></a>
+    <a href="#img-19" class="a"><img src="https://cdn.shopify.com/s/files/1/1057/4964/files/Indiana-Jones-and-the-Last-Crusade-Vintage-Movie-Poster-Original_f5130cf8_368x.jpg?v=1745377777" ></a>
+    <a href="#img-20" class="a"><img src="https://www.movieposters.com/cdn/shop/products/ed4796ac6feff9d2a6115406f964c928_6b200bda-fe71-4900-ad7f-903cdda50dab.jpg?v=1762505090&width=250" ></a>
+    <a href="#img-21" class="a"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzuOTg-3hP_XwJ_LUh72E1WhwxgRQ4RMXVXA&s" ></a>
+    <a href="#img-22" class="a"><img src="https://img.freepik.com/premium-psd/event-poster-design_528542-1519.jpg?semt=ais_hybrid&w=740&q=80" ></a>
+    <a href="#img-23" class="a"><img src="https://www.tallengestore.com/cdn/shop/products/Joker_-_Put_On_A_Happy_Face_-_Joaquin_Phoenix_-_Hollywood_English_Movie_Poster_3_0e557717-f9ae-4d45-82c3-27e08c2a9eeb.jpg?v=1579504984" ></a>
+    <a href="#img-24" class="a"><img src="https://preview.redd.it/what-has-happened-to-movie-posters-v0-qeeiq5wnnhb81.jpg?width=640&crop=smart&auto=webp&s=e78a7ab062c1ee5e57ca0806c0659849271cf09b" ></a>
+    <a href="#img-25" class="a"><img src="https://akns-images.eonline.com/eol_images/Entire_Site/2018112/rs_634x939-181202195654-634.captain-marvel.12418.jpg?fit=around%7C634:939&output-quality=90&crop=634:939;center,top" ></a>
+
+<!-- We are creating another area that will be focused  -->
+    <div class="lightbox" id="img-1">
+        <a href="#" class="close"></a>
+        <img src="https://creativereview.imgix.net/uploads/2023/12/Oppenheimer.jpg?auto=compress,format&crop=faces,entropy,edges&fit=crop&q=60&w=1263&h=2000" class="b">
+    </div>
+    <div class="lightbox" id="img-2">
+        <a href="#" class="close"></a>
+        <img src="https://www.tallengestore.com/cdn/shop/products/Art_Poster_-_Sicario_-_Tallenge_Hollywood_Collection_210a9d5c-4bf2-4323-ae52-1f5104039449.jpg?v=1505078989" class="b">
+    </div>
+    <div class="lightbox" id="img-3">
+        <a href="#" class="close"></a>
+        <img src="https://m.media-amazon.com/images/I/81dae9nZFBS._AC_UF894,1000_QL80_.jpg" class="b">
+    </div>
+    <div class="lightbox" id="img-4">
+        <a href="#" class="close"></a>
+        <img src="https://substackcdn.com/image/fetch/$s_!kYcn!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a586bd9-e88f-4d89-97ec-0f1e0f72a0ee_800x1184.jpeg" class="b">
+    </div>
+    <div class="lightbox" id="img-5">
+        <a href="#" class="close"></a>
+        <img src="https://images-cdn.ubuy.co.in/68901f6ae49b8c404602f009-the-batman-movie-poster-glossy-quality.jpg" >
+     </div>
+    <div class="lightbox" id="img-6">
+        <a href="#" class="close"></a>
+        <img src="https://m.media-amazon.com/images/I/71eHZFw+GlL._AC_UF894,1000_QL80_.jpg" class="b">
+    </div>
+    <div class="lightbox" id="img-7">
+        <a href="#" class="close"></a>
+        <img src="https://images-cdn.ubuy.co.in/68b1b650d9f8d3e89e042c52-star-wars-rogue-one-movie-poster.jpg" class="b">
+    </div>
+    <div class="lightbox" id="img-8">
+        <a href="#" class="close"></a>
+        <img src="https://posterhouse.org/wp-content/uploads/2021/05/moonlight_0.jpg" class="b">
+    </div>
+    <div class="lightbox" id="img-9">
+        <a href="#" class="close"></a>
+        <img src="https://creativereview.imgix.net/uploads/2024/12/AlienRomulus-scaled.jpg?auto=compress,format&crop=faces,entropy,edges&fit=crop&q=60&w=1728&h=2560"" class="b">
+    </div>
+    <div class="lightbox" id="img-10">
+        <a href="#" class="close"></a>
+        <img src="https://substackcdn.com/image/fetch/$s_!SjlY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F289ad232-bb03-4b07-848c-d0dad888a4dc_2000x2963.png" class="b">
+    </div>
+    <div class="lightbox" id="img-11">
+        <a href="#" class="close"></a>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ1Fks8pmusafuaw97CN8bFb1iddR1_FmvCw&s" class="b">
+    </div>
+    <div class="lightbox" id="img-12">
+        <a href="#" class="close"></a>
+        <img src="https://rukminim2.flixcart.com/image/480/640/jr3t5e80/poster/a/w/f/medium-stranger-things-poster-for-room-office-13-inch-x-19-inch-original-imafcww8v99r4qhh.jpeg?q=90" class="b">
+    </div>
+    <div class="lightbox" id="img-13">
+        <a href="#" class="close"></a>
+        <img src="https://webdesignerdepot-wp.s3.us-east-2.amazonaws.com/2023/11/30121006/jurassicpark.jpg" class="b">
+    </div>
+    <div class="lightbox" id="img-14">
+        <a href="#" class="close"></a>
+        <img src="https://compote.slate.com/images/77440fdf-a599-4fd1-90fc-cc619aa7419d.jpg?crop=590%2C885%2Cx0%2Cy0" class="b">
+    </div>
+    <div class="lightbox" id="img-15">
+        <a href="#" class="close"></a>
+        <img src="https://cdn.prod.website-files.com/687e8d1b96312cc631cafec7/68c48d141e8381607486e3fe_66a4263d01a185d5ea22eeef_6408f676b5811234c887ca62_top%252520gun%252520maverick-min.png"  class="b">
+    </div>
+    <div class="lightbox" id="img-16">
+        <a href="#" class="close"></a>
+        <img src="https://i.pinimg.com/1200x/fb/55/dc/fb55dc632b7a7ffbabf104b1208b27fc.jpg" class="b">
+    </div>
+    </div>
+    <div class="lightbox" id="img-18">
+        <a href="#" class="close"></a>
+        <img src="https://media.designrush.com/tinymce_images/205872/conversions/1.-Dream-Factory-content.jpg"  class="b">
+    </div>
+    <div class="lightbox" id="img-19">
+        <a href="#" class="close"></a>
+        <img src="https://cdn.shopify.com/s/files/1/1057/4964/files/Indiana-Jones-and-the-Last-Crusade-Vintage-Movie-Poster-Original_f5130cf8_368x.jpg?v=1745377777"  class="b">
+    </div>
+    <div class="lightbox" id="img-20">
+        <a href="#" class="close"></a>
+        <img src="https://www.movieposters.com/cdn/shop/products/ed4796ac6feff9d2a6115406f964c928_6b200bda-fe71-4900-ad7f-903cdda50dab.jpg?v=1762505090&width=250"  class="b">
+    </div>
+    <div class="lightbox" id="img-21">
+        <a href="#" class="close"></a>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzuOTg-3hP_XwJ_LUh72E1WhwxgRQ4RMXVXA&s"  class="b">
+    </div>
+    <div class="lightbox" id="img-22">
+        <a href="#" class="close"></a>
+        <img src="https://img.freepik.com/premium-psd/event-poster-design_528542-1519.jpg?semt=ais_hybrid&w=740&q=80"  class="b">
+    </div>
+    <div class="lightbox" id="img-23">
+        <a href="#" class="close"></a>
+        <img src="https://www.tallengestore.com/cdn/shop/products/Joker_-_Put_On_A_Happy_Face_-_Joaquin_Phoenix_-_Hollywood_English_Movie_Poster_3_0e557717-f9ae-4d45-82c3-27e08c2a9eeb.jpg?v=1579504984"  class="b">
+    </div>
+    <div class="lightbox" id="img-24">
+        <a href="#" class="close"></a>
+        <img src="https://preview.redd.it/what-has-happened-to-movie-posters-v0-qeeiq5wnnhb81.jpg?width=640&crop=smart&auto=webp&s=e78a7ab062c1ee5e57ca0806c0659849271cf09b"  class="b">
+    </div>
+    <div class="lightbox" id="img-25">
+        <a href="#" class="close"></a>
+        <img src="https://akns-images.eonline.com/eol_images/Entire_Site/2018112/rs_634x939-181202195654-634.captain-marvel.12418.jpg?fit=around%7C634:939&output-quality=90&crop=634:939;center,top"  class="b">
+    </div>
+    
+
+</body>
+</html>
