@@ -1,5 +1,7 @@
 # 💡 Light Box Movie Poster Gallery
 
+https://govindjindal.github.io/Light_Box_Animation-IWT-2/#
+
 A responsive movie poster gallery featuring a pure CSS **Lightbox** effect for viewing posters in full size.
 
 This project uses modern HTML5 and CSS3 features, including **CSS Grid** (via `flex-wrap: wrap` and `gap`) for the layout and the **`:target`** pseudo-class for the lightbox functionality without relying on JavaScript.
